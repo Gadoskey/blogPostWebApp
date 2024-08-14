@@ -1,0 +1,50 @@
+{% extends "layout.html" %} {% block data %}
+<div class="content-section mb-1">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-2">Sign In</legend>
+      <div class="form-group">
+        {{ form.email.label(class="form-control-label") }} {% if
+        form.email.errors %} {{ form.email(class="form-control form-control-lg
+        is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+          <span> {{ error }} </span>
+          {% endfor %}
+        </div>
+        {% else%} {{ form.email(class="form-control form-control-lg") }} {%
+        endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-control-label") }} {% if
+        form.password.errors %} {{ form.password(class="form-control
+        form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+          <span> {{ error }} </span>
+          {% endfor %}
+        </div>
+        {% else%} {{ form.password(class="form-control form-control-lg") }} {%
+        endif %}
+      </div>
+      <div class="form-check">
+        {{ form.remember_password(class="form-check-input") }}
+        {{ form.remember_password.label(class="form-check-label") }}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+      <small class="text-muted">
+      <a class="ml-2" href="{{ url_for('users.requestPasswordReset') }}">Reset Password</a>
+  </small>
+    </div>
+  </form>
+</div>
+<div class="border-top pt-1">
+  <small class="text-muted">
+    Have no Account?
+    <a class="ml-2" href="{{ url_for('users.signUp') }}">Create One Now</a>
+  </small>
+</div>
+{% endblock data %}
