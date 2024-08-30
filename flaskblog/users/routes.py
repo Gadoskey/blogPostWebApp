@@ -3,7 +3,7 @@ from flaskblog.models import User, Post
 from flaskblog import db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from flaskblog.users.forms import RegistrationForm, LogInForm, UpdateForm, RequestPasswordReset, PasswordReset
-from flaskblog.users.utils import save_image
+from flaskblog.users.utils import save_image, sendPasswordReset
 from flaskblog.posts.forms import  PostForm
 
 

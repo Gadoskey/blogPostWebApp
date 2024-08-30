@@ -44,7 +44,7 @@ class LogInForm(Form):
 class UpdateForm(Form):
     username = MyString('Username', validators=[Required(), Length(min=2, max=22)])
     email = MyString('Email', validators=[Required(), Email()])
-    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
+    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'jpeg', 'png'])])
     submit = MySubmit('Update Account')
   
     def validate_username(self, username):
