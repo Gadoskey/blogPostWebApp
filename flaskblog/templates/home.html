@@ -9,7 +9,7 @@
     <div class="article-metadata">
       <a class="mr-2" href="{{ url_for('users.userPosts', username=post.author.username) }}">@{{ post.author.username }}</a>
       <small class="text-secondary"
-        >Posted On: {{ post.date_posted.strftime('%B %d, %Y at %H:%M %p')
+        >{{ post.date_posted.strftime('%B %d, %Y at %H:%M %p')
         }}</small
       >
     </div>

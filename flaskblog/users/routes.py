@@ -3,7 +3,7 @@ from flaskblog.models import User, Post
 from flaskblog import db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from flaskblog.users.forms import RegistrationForm, LogInForm, UpdateForm, RequestPasswordReset, PasswordReset
-from flaskblog.users.utils import save_image
+from flaskblog.users.utils import save_image, sendPasswordReset
 from flaskblog.posts.forms import  PostForm
 
 
@@ -48,8 +48,50 @@ def signOut():
     logout_user()
     return redirect(url_for('main.homepage'))
 
-
 @users.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    form = UpdateForm()
+    if form.validate_on_submit():
+        update_made = False
+
+        # Check if the profile picture is being updated
+        if form.picture.data:
+            picture_file = save_image(form.picture.data)
+            if current_user.profile_image != picture_file:
+                current_user.profile_image = picture_file
+                update_made = True
+
+        # Check if username or email is being updated
+        if form.username.data != current_user.username:
+            current_user.username = form.username.data
+            update_made = True
+        
+        if form.email.data != current_user.email:
+            current_user.email = form.email.data
+            update_made = True
+
+        # Commit changes only if there are updates
+        if update_made:
+            db.session.commit()
+            flash("Account Updated!", 'success')
+        else:
+            flash("No changes were made to your account.", 'info')
+        
+        return redirect(url_for('users.account'))
+        
+    elif request.method == 'GET':
+        # Pre-fill the form with current user data
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+
+    # Generate the URL for the user's profile image
+    userImage = url_for('static', filename='images/' + current_user.profile_image)
+    return render_template('account.html', title='Account', userImage=userImage, form=form)
+
+
+
+"""@users.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
     form = UpdateForm()
@@ -70,7 +112,7 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
     userImage = url_for('static', filename='images/' + current_user.profile_image)
-    return render_template('account.html', title = 'Account', userImage = userImage, form=form)
+    return render_template('account.html', title = 'Account', userImage = userImage, form=form)"""
   
 @users.route('/user/<string:username>')
 def userPosts(username):
@@ -78,6 +120,26 @@ def userPosts(username):
     user = User.query.filter_by(username=username).first_or_404()
     posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page=page, per_page=3)
     return render_template('userPosts.html', posts = posts, user=user)
+
+def generate_summary(content, length=100):
+    """Generate a summary from the content."""
+    if len(content) > length:
+        return content[:length] + '...'
+    return content
+
+@users.route('/latest-posts')
+def latest_posts():
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=10)
+
+
+    # Generate summaries dynamically
+    for post in posts.items:
+        post.summary = generate_summary(post.content)
+
+    return render_template('latest_posts.html', posts=posts)
+
+
   
 @users.route('/reset_password', methods=['GET', 'POST'])
 def requestPasswordReset():
