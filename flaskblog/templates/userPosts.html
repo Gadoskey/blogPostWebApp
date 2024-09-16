@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block data %}
-  <h2 class="border border-2 border-gray mb-2 pl-1 pb-1">Posts By @{{ user.username }} ({{ posts.total}})</h2>
+  <h2 class="border border-2 border-gray mb-2 pl-1 pb-1">
+    Posts By @{{ user.username }} ( 
+    {{ posts.total }} {{ "post" if posts.total == 1 else "posts" }}
+    )
+  </h2>
 {% for post in posts.items %}
 <article class="media content-section">
   <img
@@ -12,7 +16,7 @@
     <div class="article-metadata">
       <a class="mr-2" href="{{ url_for('users.userPosts', username=post.author.username) }}">@{{ post.author.username }}</a>
       <small class="text-secondary"
-        >Posted On: {{ post.date_posted.strftime('%B %d, %Y at %H:%M %p')
+        >{{ post.date_posted.strftime('%B %d, %Y at %H:%M %p')
         }}</small
       >
     </div>

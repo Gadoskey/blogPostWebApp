@@ -1,2 +1,8 @@
 add full name to the sign up
 ypu can also add the users profile picture upon login if they are authenticated beside the signout option
+add users bio to the email section
+there should be a default image used to avoid email over lapping in the users account make sure you reclone this repo when you want to work here use a new vs code tab okay
+try to send the bloag app repo from the server to the local maching then commit to git hub then here
+
+
+
