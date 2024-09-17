@@ -10,35 +10,35 @@ Gadoski Blog is a simple and dynamic web application designed for users to engag
 
 ## ***Features***
 
-Post Creation: Users can create and publish posts with rich content.
-Profile Customization: Personalize profiles with profile pictures and bios.
-Updating Posts: Modify or update existing posts as needed.
-Deleting Posts: Remove posts that are no longer relevant or needed.
-Email Update: Change your email address associated with your account.
-Username Update: Modify your username if needed.
-Password Reset: Reset your password securely if you forget it.
-Announcements: View important updates and announcements from the app.
+1. Post Creation: Users can create and publish posts with rich content.
+2. Profile Customization: Personalize profiles with profile pictures and bios.
+3. Updating Posts: Modify or update existing posts as needed.
+4. Deleting Posts: Remove posts that are no longer relevant or needed.
+5. Email Update: Change your email address associated with your account.
+6. Username Update: Modify your username if needed.
+7. Password Reset: Reset your password securely if you forget it.
+8. Announcements: View important updates and announcements from the app.
 
 # **Installation**
 
 ## ***Prerequisites***
 
-Python 3.x
-Flask
-SQLAlchemy
-[Other dependencies listed in requirements.txt]
+1. Python 3.x
+2. Flask
+3. SQLAlchemy
+4. Other dependencies listed in *requirements.txt*
 
 ## ***Clone the Repository***
 
-*git clone https://github.com/yourusername/gadoski-blog.git*
+*git clone https://yourtoken@github.com/Gadoskey/blogPostWebApp.git*
 
-*cd gadoski-blog*
+*cd blogPostWebApp*
 
-## **Set Up a Virtual Environment**
+## ***Set Up a Virtual Environment***
 
 *python -m venv venv*
 
-*source venv/bin/activate  # On Windows use `venv\Scripts\activate`*
+*`source venv/bin/activate`  # On Windows use `venv/Scripts/activate`*
 
 ## ***Install Dependencies***
 
@@ -46,9 +46,13 @@ SQLAlchemy
 
 ## ***Configuration***
 1. Database Setup: Run the following commands to set up the database and apply migrations:
+
 *flask db upgrade*
+
 2. Environment Variables: Create a .env file in the root directory and add the following:
+
 *SECRET_KEY=your_secret_key_here*
+
 *DATABASE_URL=your_database_url_here*
 
 # **Running the Application**
