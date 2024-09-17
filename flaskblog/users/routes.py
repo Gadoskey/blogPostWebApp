@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, url_for, flash, redirect, request,
 from flaskblog.models import User, Post
 from flaskblog import db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
-from flaskblog.users.forms import RegistrationForm, LogInForm, UpdateForm, RequestPasswordReset, PasswordReset
+from flaskblog.users.forms import RegistrationForm, LogInForm, UpdateForm, RequestPasswordReset, PasswordReset, BioForm
 from flaskblog.users.utils import save_image, sendPasswordReset
 from flaskblog.posts.forms import  PostForm
 
@@ -177,3 +177,19 @@ def passwordReset(token):
         flash("Your Password Has Been Updated! Welcome Back on Board, {}".format(user.username), 'success')
         return redirect(url_for('users.signIn'))
     return render_template('passwordReset.html', title='Reset Password', form=form)
+
+
+@users.route('/bio', methods=['GET', 'POST'])
+@login_required
+def bio():
+    user = current_user
+    form = BioForm()
+    
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+        db.session.commit()
+        flash('Your bio has been updated.', 'success')
+        return redirect(url_for('users.bio'))
+    
+    form.bio.data = user.bio
+    return render_template('bio.html', user=user, form=form)

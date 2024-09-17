@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block data %}
+<h2>{{ user.username }}'s Bio</h2>
+
+<form method="POST" action="{{ url_for('users.bio') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <label for="bio">Bio</label>
+        {{ form.bio(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Update Bio</button>
+</form>
+<hr>
+<p><strong>Your Bio:</strong> {{ user.bio }}</p>
+{% endblock data %}

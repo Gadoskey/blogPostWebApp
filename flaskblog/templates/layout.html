@@ -86,10 +86,13 @@
         <div class="col-md-4">
           <div class="content-section">
             {% if current_user.is_authenticated %}
-            <h3>Welcome, {{ current_user.username }}</h3>
+            <h3>{{ current_user.username }}</h3>
             <p class="text-muted">
-              {{ current_user.bio or "You haven't added a bio yet. Update it in
-              your account section." }}
+              {% if current_user.bio %}
+                <p><strong></strong> {{ current_user.bio }}</p>
+              {% else %}
+                <p>You haven't added a bio yet. <a href="{{ url_for('users.bio') }}" class="btn btn-primary">Create One Here</a></p>
+              {% endif %}
             </p>
             {% else %}
             <h3>Our Sidebar</h3>
@@ -107,9 +110,11 @@
                 href="{{ url_for('users.latest_posts') }}"
                 >Latest Posts</a
               >
-              <li class="list-group-item list-group-item-light">
-                Announcements
-              </li>
+              <a
+                class="list-group-item list-group-item-light"
+                href="{{ url_for('main.announcements_page') }}"
+                >Announcements</a
+              >
               <a
                 class="list-group-item list-group-item-light"
                 href="https://www.gadoski.tech"

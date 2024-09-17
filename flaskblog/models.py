@@ -19,6 +19,8 @@ class User(db.Model, UserMixin):
     profile_image = db.Column(db.String(120), nullable=False, default='static/images/default.jpg')
     password = db.Column(db.String(120), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
+    bio = db.Column(db.Text, nullable=True)
+    
     
     def get_reset_token(self, expires_sec=1800):
         s = Serializer(current_app.config['SECRET_KEY'], salt='my_salt')
@@ -37,7 +39,7 @@ class User(db.Model, UserMixin):
     
     
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.profile_image}')"
+        return f"User('{self.username}', '{self.email}', '{self.profile_image}', '{self.bio}')"
     
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

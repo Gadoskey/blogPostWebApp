@@ -72,3 +72,8 @@ class PasswordReset(Form):
     password = MyPassword('Password', validators=[Required()])
     confirm_password = MyPassword('Confirm Password', validators=[Required(), EqualTo('password')])
     submit = MySubmit('Reset Password')
+
+
+class BioForm(Form):
+    bio = TextAreaField('Your Bio', validators=[Required()])
+    submit = MySubmit('Update Bio')
