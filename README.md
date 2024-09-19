@@ -44,6 +44,8 @@ Gadoski Blog is a simple and dynamic web application designed for users to engag
 
 `git clone https://yourtoken@github.com/Gadoskey/blogPostWebApp.git`
 
+## ***Navigate to the project directory***
+
 `cd blogPostWebApp`
 
 ## ***Set Up a Virtual Environment***
