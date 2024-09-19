@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: #eeecec;
   color: #333333;
   margin-top: 5rem;
 }
@@ -11,7 +11,9 @@ h1, h2, h3, h4, h5, h6 {
 .bg-steel {
   background-color: #5f788a;
 }
-
+.navbar{
+  background: linear-gradient(to right, #5a5a5a, #747373, #b8b1b1, #747373, #5a5a5a);
+}
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
 }

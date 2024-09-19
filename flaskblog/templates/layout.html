@@ -17,6 +17,11 @@
       type="text/css"
       href="{{ url_for('static', filename='main.css') }}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
 
     {% if title %}
     <title>{{ title }}</title>
@@ -27,9 +32,9 @@
 
   <body class="">
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-secondary fixed-top">
+      <nav class="navbar navbar-expand-md navbar-dark  fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Gadoski Web Blog</a>
+          <a class="navbar-brand mr-4" href="/">Gadoski Blog</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -86,7 +91,7 @@
         <div class="col-md-4">
           <div class="content-section">
             {% if current_user.is_authenticated %}
-            <h3>Welcome, {{ current_user.username }}</h3>
+            <h3>Hi, {{ current_user.username }}</h3>
             <p class="text-muted">
               {% if current_user.bio %}
                 <p><strong></strong> {{ current_user.bio }}</p>
@@ -96,7 +101,7 @@
             </p>
             {% else %}
             <h3>Hi There!</h3>
-            <p class="text-muted">Update your bio in the account section.</p>
+            <p class="text-muted">Sign In or Create a new account.</p>
             {% endif %}
             <ul class="list-group">
               <a

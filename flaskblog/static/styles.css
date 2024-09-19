@@ -1,0 +1,50 @@
+/* General font size for larger screens */
+body {
+  font-size: 18px;
+}
+
+/* Media query for mobile devices (screens narrower than 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  h1 {
+    font-size: 24px; /* Adjust other elements like headings */
+  }
+  h2 {
+    font-size: 23px;
+    /* Adjust other elements like headings */
+  }
+  h3 {
+    font-size: 22px;
+    /* Adjust other elements like headings */
+  }
+
+  p {
+    font-size: 12px; /* Adjust paragraph font size */
+  }
+}
+
+/* Media query for very small screens (phones in portrait, narrower than 576px) */
+@media (max-width: 576px) {
+  body {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 21px;
+    /* Adjust other elements like headings */
+  }
+  h3 {
+    font-size: 20px;
+    /* Adjust other elements like headings */
+  }
+
+  p {
+    font-size: 11px;
+  }
+}
