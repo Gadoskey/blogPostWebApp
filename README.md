@@ -1,6 +1,6 @@
 # **Gadoski Web Blog**
 
-## ***Author***
+## **Author**
 
 Yusuf Mustapha Opeyemi [mustopha.yusufope@gmail.com]
 
@@ -19,6 +19,18 @@ Gadoski Blog is a simple and dynamic web application designed for users to engag
 7. Password Reset: Reset your password securely if you forget it.
 8. Announcements: View important updates and announcements from the app.
 
+
+## ***Technologies Used***
+
+1. Flask: A lightweight Python web framework that powers the server-side of the application, managing routes, requests, and responses.
+2. SQLAlchemy: A powerful Object Relational Mapper (ORM) used for interacting with the database, allowing seamless integration between Python code and SQL queries.
+3. Jinja2: A templating engine used within Flask to render dynamic HTML content, enabling separation of logic and presentation.
+4. HTML: Provides the structure for the web pages of the application.
+5. CSS and Bootstrap: Used to style the application, ensuring responsiveness and a visually appealing layout across various screen sizes.
+6. SQLite: Handles the database layer, storing and managing user data, posts, and other persistent information.
+7. WTForms: A form-handling library used to easily manage form creation, validation, and rendering in the web app.
+8. Flask-Mail: For handling email functionalities, including sending confirmation emails, password reset requests, and other notifications.
+
 # **Installation**
 
 ## ***Prerequisites***
@@ -26,44 +38,45 @@ Gadoski Blog is a simple and dynamic web application designed for users to engag
 1. Python 3.x
 2. Flask
 3. SQLAlchemy
-4. Other dependencies listed in *requirements.txt*
+4. Other dependencies listed in `requirements.txt`
 
 ## ***Clone the Repository***
 
-*git clone https://yourtoken@github.com/Gadoskey/blogPostWebApp.git*
+`git clone https://yourtoken@github.com/Gadoskey/blogPostWebApp.git`
 
-*cd blogPostWebApp*
+`cd blogPostWebApp`
 
 ## ***Set Up a Virtual Environment***
 
-*python -m venv venv*
+`python -m venv venv`
 
-*`source venv/bin/activate`  # On Windows use `venv/Scripts/activate`*
+`source venv/bin/activate`  # On Windows use `venv/Scripts/activate`
 
 ## ***Install Dependencies***
 
-*pip install -r requirements.txt*
+`pip install -r requirements.txt`
 
 ## ***Configuration***
 1. Database Setup: Run the following commands to set up the database and apply migrations:
 
-*flask db upgrade*
+`flask db upgrade`
 
-2. Environment Variables: Create a .env file in the root directory and add the following:
+2. Environment Variables: Create a `.env` file in the root directory and add the following:
 
-*SECRET_KEY=your_secret_key_here*
+`SECRET_KEY=your_secret_key_here`
 
-*DATABASE_URL=your_database_url_here*
+`DATABASE_URL=your_database_url_here`
 
 # **Running the Application**
 
 ## ***Start the development server with:***
 
-*flask run*
+`flask run.py`
 
-Visit http://127.0.0.1:8000 in your web browser to view the app.
+`Visit http://127.0.0.1:8000 in your web browser to view the app.`
 
-***Usage***
+## ***Usage***
+
 1. Home Page: Browse recent posts and updates from the community.
 2. Profile Page: Update your bio, manage your posts, and view your interaction history.
 3. Creating Posts: Share your thoughts and content with the community.
@@ -79,7 +92,7 @@ I welcome contributions to improve Gadoski Web Blog! To contribute:
 1. Fork the Repository
 2. Create a Branch: git checkout -b feature/YourFeature
 3. Make Your Changes: Implement your feature or fix a bug.
-4. Commit Your Changes: git commit -am 'Add new feature or fix'
+4. Commit Your Changes: git commit -m 'Add new feature or fix'
 5. Push to the Branch: git push origin feature/YourFeature
 6. Open a Pull Request: Describe your changes and request a review.
 
@@ -92,4 +105,4 @@ I welcome contributions to improve Gadoski Web Blog! To contribute:
 
 ## ***Contact***
 
-For any questions or further information, feel free to mail me: *mustopha.yusufope@gmail.com*
+For any questions or further information, feel free to mail me @ *mustopha.yusufope@gmail.com*

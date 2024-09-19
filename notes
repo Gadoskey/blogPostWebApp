@@ -1,2 +1,7 @@
 add full name to the sign up
 ypu can also add the users profile picture upon login if they are authenticated beside the signout option
+add bio to the account route so that users can edit their bios
+make each users profile image link to a route that dislays the account info of the user
+the time for post created is one hour behind, correct that
+begin the test cases for the blog app
+clean and comment your whole code 
